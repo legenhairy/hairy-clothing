@@ -1,0 +1,15 @@
+export const addItemToCart = (cartItems, cartItemToAdd) => {
+  const existingCartItem = cartItems.find(
+  	cartItem => cartItem.id === cartItemToAdd.id
+  );
+
+  if(existingCartItem) { /*if the item exists already, add to quantity by 1*/
+  	return cartItems.map(cartItem =>
+  	  cartItem.id === cartItemToAdd.id
+  	  	? {...cartItem, quantity: cartItem.quantity + 1}
+  	  	: cartItem
+  	)
+  }
+
+  return [...cartItems, {...cartItemToAdd, quantity: 1 }]
+}
