@@ -8,7 +8,7 @@ import { signUpStart } from '../../redux/user/user.actions';
 
 import { SignUpContainer, SignUpTitle } from './sign-up.styles';
 
-const SignUp = () => {
+const SignUp = ({ signUpStart }) => {
   const [userCredentials, setUserCredentials] = useState({
     displayName: '',
     email: '',
@@ -21,9 +21,7 @@ const SignUp = () => {
   const handleSubmit = async event => {
   	event.preventDefault();
 
-    const { signUpStart } = this.props;
-
-  	if(password !== confirmPassword) {
+    if(password !== confirmPassword) {
   	  alert("passwords don't match");
   	  return;
   	}
